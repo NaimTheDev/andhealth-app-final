@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "867061463916",
+    "firebase_url": "https://andhealth-chat-backend-default-rtdb.firebaseio.com",
+    "project_id": "andhealth-chat-backend",
+    "storage_bucket": "andhealth-chat-backend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867061463916:android:a5b88afa9ed75fe8025149",
+        "android_client_info": {
+          "package_name": "com.andhealth.chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSwhNP_hUR7Q7YB25PdfDnSOjytNDXi_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867061463916:android:b7a0087ffdb3b516025149",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSwhNP_hUR7Q7YB25PdfDnSOjytNDXi_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
