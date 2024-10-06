@@ -1,10 +1,13 @@
+import 'package:andhealthchat/services/fileuploader/file_upload.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+
 class ChatPage extends StatefulWidget {
   final String receiverUserEmail;
   final String receiverUserID;
+
 
   const ChatPage({
     Key? key,
@@ -20,6 +23,8 @@ class _ChatPageState extends State<ChatPage> {
   final TextEditingController _messageController = TextEditingController();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FileUploader _fileUploader = FileUploader();
+
 
   String get receiverName => widget.receiverUserEmail.split('@')[0];
 
@@ -92,7 +97,8 @@ class _ChatPageState extends State<ChatPage> {
     var isCurrentUser = data['senderId'] == _firebaseAuth.currentUser!.uid;
     var alignment = isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
 
-    return Container(
+     return SelectionArea(
+    child: Container(
       alignment: alignment,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -110,7 +116,8 @@ class _ChatPageState extends State<ChatPage> {
           ],
         ),
       ),
-    );
+    ),
+  );
   }
 
   Widget _buildMessageInput() {
@@ -134,6 +141,16 @@ class _ChatPageState extends State<ChatPage> {
             icon: const Icon(Icons.send),
             color: Color(0xFFFF4D00),
           ),
+          IconButton(
+            onPressed: () async {
+            final String? downloadUrl = await _fileUploader.uploadFile();
+            _messageController.text = downloadUrl!;
+            
+          },
+            icon: const Icon(Icons.upload),
+            color: Color(0xFFFF4D00),
+          ),
+          
         ],
       ),
     );
